@@ -1,0 +1,58 @@
+.Frame {
+  height: 100%;
+  min-height:100%;
+}
+
+.Frame-top {
+  height: 50%;
+}
+
+.Frame-top-number {
+  margin: 0 auto;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  border-radius: 1.5rem;
+}
+
+.Frame-top-header {
+  font-size: 3rem;
+}
+
+.Frame-top-subheader {
+  font-weight: 300;
+  color: gray;
+}
+
+.Frame-top-info {
+  top: 25%;
+  position: relative;
+}
+
+.Frame-bottom {
+  height: 50%;
+}
+
+.Frame-bottom-icon {
+  margin: 0 auto;
+  position: relative;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  background-color: white;
+  top: 40%;
+}
+
+.theme-purpTeal {
+  background: linear-gradient(to right, rgba(100,73,164,1) 0%,rgba(0,255,255,1) 100%);
+}
+
+.theme-tealYellow {
+  background: linear-gradient(to right, rgba(0,255,255,1) 0%,rgba(255,255,0,1) 100%);
+}
+
+.theme-yellowPink {
+  background: linear-gradient(to right, rgba(255,255,0,1) 0%,rgba(255,51,153,1) 100%);
+}
