@@ -12,6 +12,7 @@ class App extends Component {
     this.onSwipeLeftListener = this._onSwipeLeftListener.bind(this);
     this.onSwipeRightListener = this._onSwipeRightListener.bind(this);
     this.renderFrames = this._renderFrames.bind(this);
+    //Dummy frame data for each of the frames being passed down to Frame component
     this.frameData = [
       {
         frameNum: 1,
@@ -43,7 +44,7 @@ class App extends Component {
    _onSwipeRightListener(){
      this.uberSwipe.swipe.prev();
     }
-
+    //renders Frames using Frame component
   _renderFrames() {
     return this.frameData.map((frame, i) => {
       return (
@@ -62,6 +63,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      //Uberswipe which is copied from ReactSwipe adding my own CSS classes internally
         <UberSwipe ref={uberSwipe => this.uberSwipe = uberSwipe} className="UberSwipe-inner">
           { this.renderFrames() }
         </UberSwipe>

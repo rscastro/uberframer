@@ -8,7 +8,7 @@ class Frame extends Component {
   constructor(props) {
     super(props);
   }
-
+  //Top part of frame, renders headers and attaches swipe functionality
   renderTop () {
     const { frameHeader, frameNum, frameSubHeader, frameTheme } = this.props.frameData;
     const frameClass = `Frame-top-number ${frameTheme}`;
@@ -34,6 +34,8 @@ class Frame extends Component {
 
     )
   }
+
+  //renders bottom frame with gradient classes
   renderBottom () {
     const { frameTheme } = this.props.frameData;
     const frameClass = `Frame-bottom ${frameTheme}`;
