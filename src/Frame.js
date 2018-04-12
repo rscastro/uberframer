@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './Frame.css';
 import { Swipeable } from 'react-touch';
-
 
 class Frame extends Component {
   constructor(props) {
@@ -11,22 +9,37 @@ class Frame extends Component {
   //Top part of frame, renders headers and attaches swipe functionality
   renderTop () {
     const { frameHeader, frameNum, frameSubHeader, frameTheme } = this.props.frameData;
+    const { translate } = this.props;
     const frameClass = `Frame-top-number ${frameTheme}`;
+
+
     return (
       <Swipeable
         onSwipeLeft={this.props.onSwipeLeftListener}
         onSwipeRight={this.props.onSwipeRightListener}>
       <div className="Frame-top">
-        <div className="Frame-top-info">
-          <div className={ frameClass }>
+
+        <div
+          className="Frame-top-info">
+
+          <div 
+          style={ translate }
+          className={ frameClass }>
             { frameNum }
           </div>
-          <h1 className="Frame-top-header">
+
+          <h1 
+          style={ translate }
+          className="Frame-top-header">
             { frameHeader }
           </h1>
-          <h3 className="Frame-top-subheader">
+
+          <h3 
+          style={ translate }
+          className="Frame-top-subheader">
             { frameSubHeader }
           </h3>
+
         </div>
 
         </div>
@@ -39,11 +52,13 @@ class Frame extends Component {
   renderBottom () {
     const { frameTheme } = this.props.frameData;
     const frameClass = `Frame-bottom ${frameTheme}`;
+    const {translate} = this.props;
     return (
       <Swipeable
         onSwipeLeft={this.props.onSwipeLeftListener}
         onSwipeRight={this.props.onSwipeRightListener}>
-      <div className={ frameClass }>
+      <div style={ translate }
+        className={ frameClass }>
         <div className="Frame-bottom-icon" />
 
       </div>

@@ -15,24 +15,30 @@
   font-size: 1.5rem;
   line-height: 2rem;
   border-radius: 1.5rem;
+  transition: 300ms;
 }
 
 .Frame-top-header {
   font-size: 3rem;
+  transition: 500ms;
 }
 
 .Frame-top-subheader {
   font-weight: 300;
   color: gray;
+  transition: 600ms;
 }
 
 .Frame-top-info {
   top: 25%;
   position: relative;
+  transition-timing-function: 3000ms;
+  transition: ease-out;
 }
 
 .Frame-bottom {
   height: 50%;
+  transition: 200ms;
 }
 
 .Frame-bottom-icon {

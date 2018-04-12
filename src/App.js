@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Frame from './Frame';
-import UberSwipe from './UberSwipe';
-import { Swipeable } from 'react-touch';
 
 
 class App extends Component {
@@ -13,6 +10,10 @@ class App extends Component {
     this.onSwipeRightListener = this._onSwipeRightListener.bind(this);
     this.renderFrames = this._renderFrames.bind(this);
     //Dummy frame data for each of the frames being passed down to Frame component
+    this.state = {
+      currentFrame: 0,
+      x: 0
+    }
     this.frameData = [
       {
         frameNum: 1,
@@ -36,22 +37,40 @@ class App extends Component {
   }
 
 
-
    _onSwipeLeftListener(){
-     this.uberSwipe.swipe.next();
+    if (this.state.currentFrame + 1 <= this.frameData.length - 1) {
+      this.setState({
+        x: this.state.x - window.innerWidth,
+        currentFrame: this.state.currentFrame + 1
+      });
+ 
+
     }
+  }
 
    _onSwipeRightListener(){
-     this.uberSwipe.swipe.prev();
-    }
+    if (this.state.currentFrame - 1 >= 0) {
+     this.setState({
+      x: this.state.x + window.innerWidth,
+      currentFrame: this.state.currentFrame - 1
+    })
+      
+    } 
+  }
     //renders Frames using Frame component
   _renderFrames() {
+
+    const translate = {
+      transform: `translate(${this.state.x}px, 0px`
+    }
+
     return this.frameData.map((frame, i) => {
       return (
         <div
           key={ i }
-          className="UberSwipe-inner">
+          className="App-wrapper">
             <Frame
+            translate={translate}
             onSwipeLeftListener={ this.onSwipeLeftListener }
             onSwipeRightListener={ this.onSwipeRightListener }
             frameData={ frame }/>
@@ -61,12 +80,13 @@ class App extends Component {
   }
 
   render() {
+
     return (
+
       <div className="App">
-      //Uberswipe which is copied from ReactSwipe adding my own CSS classes internally
-        <UberSwipe ref={uberSwipe => this.uberSwipe = uberSwipe} className="UberSwipe-inner">
+        
           { this.renderFrames() }
-        </UberSwipe>
+          
       </div>
     );
   }
